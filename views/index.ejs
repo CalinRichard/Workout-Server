@@ -1,0 +1,53 @@
+
+
+<% 
+let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thriller', 'Romance', 'Western']
+%>
+
+<%- include('partials/header') %>
+
+<% console.log(movies) %>
+
+    <% genres.forEach((genre) =>{ %>
+        <div class="col-lg-4 col-sm-12">
+            <div class="movie-genres">
+                <h2><%= genre %></h2>
+                <img src="/images/<%= genre %>.jpg" alt="<%= genre %>" class="movie-genre-img">
+                <button class="genre-btn"><%= genre %></button>
+            </div>
+        </div>
+            <% }) %>
+                <div class="last-updates-div col-lg-6 col-sm-12">
+                    <h2 class="last-updates-title">Last uploads</h2>
+                    <img src="images/movies-poster-last-updates.jpg" alt="last-updates-img" class="last-updates-img">
+                    <button class="last-updates-btn" id="last-updates-btn">Last uploads</button>
+                </div>
+                <div class="row last-updates-row-none" id="last-updates-row">
+                    <% let lastThreeMovies = movies.slice(-3)
+                        lastThreeMovies.forEach((movie)=> { %>
+                        <div class="last-updates-div col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <img src="/images/<%= movie.photo %>" class="img-fluid rounded-start" alt="Movie Poster">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <%= movie.name %>
+                                            </h5>
+                                            <p class="card-text">
+                                                <%= movie.name %>
+                                            </p>
+                                            <p class="card-text"><small class="text-muted">
+                                                    <%= movie.name %>
+                                                </small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                
+                <%- include('partials/footer') %>

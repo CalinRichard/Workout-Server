@@ -1,0 +1,21 @@
+<% 
+let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thriller', 'Romance', 'Western']
+%>
+<% console.log(movies) %>
+<%- include('partials/header') %>
+    <% genres.forEach((genre) =>{ %>
+        <div class="col-lg-4 col-sm-12">
+            <div class="movie-genres">
+                <h2><%= genre %></h2>
+                <img src="/images/<%= genre %>.jpg" alt="<%= genre %>" class="movie-genre-img">
+                <button class="genre-btn"><%= genre %></button>
+            </div>
+        </div>
+            <% }) %>
+                <div class="last-updates-div col-lg-6 col-sm-12">
+                    <h2 class="last-updates-title">Last uploads</h2>
+                    <img src="images/movies-poster-last-updates.jpg" alt="last-updates-img" class="last-updates-img">
+                    <button class="last-updates-btn" id="last-updates-btn">Last uploads</button>
+                </div>
+
+                <%- include('partials/footer') %>
