@@ -2,8 +2,8 @@ import express from 'express'
 import mongoose, { mongo } from 'mongoose'
 const router = express.Router()
 
-const schema = new mongoose.Schema({name: 'string', year: 'number', rating: 'number', photo: 'string', genre: 'string'})
-const Movie = mongoose.model('Movie', schema)
+// const schema = new mongoose.Schema({name: 'string', year: 'number', rating: 'number', photo: 'string', genre: Array})
+// const Movie = mongoose.model('Movie', schema)
 
 // Create movie
 

@@ -1,5 +1,3 @@
-
-
 <% 
 let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thriller', 'Romance', 'Western']
 %>
@@ -13,7 +11,7 @@ let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thr
             <div class="movie-genres">
                 <h2><%= genre %></h2>
                 <img src="/images/<%= genre %>.jpg" alt="<%= genre %>" class="movie-genre-img">
-                <button class="genre-btn"><%= genre %></button>
+                <button class="genre-btn"><a href="/genres/<%= genre %>"><%= genre %></a></button>
             </div>
         </div>
             <% }) %>

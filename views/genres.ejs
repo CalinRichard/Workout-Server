@@ -1,9 +1,12 @@
 <%- include('partials/header') %>
 <% console.log(movies) %>
-<% movies.forEach((movie) => { %>
+<% movies.forEach((movie) => {
+    for(let i = 0; i < movie.genre.length; i++){
+    if(movie.genre[i].includes(genre)){
+    %>
 <div>
     <img src="/images/<%= movie.photo %>" alt="Movie Poster">
 </div>
-<% }) %>
+<% }}}) %>
 
 <%- include('partials/footer') %>
