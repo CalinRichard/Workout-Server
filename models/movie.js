@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
   year: "number",
   rating: "number",
   photo: "string",
-  genre: "string",
+  genre: Array,
 });
 
 export default mongoose.model("Movie", schema);

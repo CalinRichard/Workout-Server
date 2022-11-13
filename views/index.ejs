@@ -4,14 +4,16 @@ let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thr
 
 <%- include('partials/header') %>
 
-<% console.log(movies) %>
+<main>
+    <div class="container">
+        <div class="row">
 
     <% genres.forEach((genre) =>{ %>
         <div class="col-lg-4 col-sm-12">
             <div class="movie-genres">
                 <h2><%= genre %></h2>
                 <img src="/images/<%= genre %>.jpg" alt="<%= genre %>" class="movie-genre-img">
-                <button class="genre-btn"><a href="/genres/<%= genre %>"><%= genre %></a></button>
+                <a href="/genres/<%= genre %>"><button class="genre-btn"><%= genre %></button></a>
             </div>
         </div>
             <% }) %>
@@ -35,11 +37,13 @@ let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thr
                                                 <%= movie.name %>
                                             </h5>
                                             <p class="card-text">
-                                                <%= movie.name %>
+                                                Genre: <%= movie.genre %>
                                             </p>
-                                            <p class="card-text"><small class="text-muted">
-                                                    <%= movie.name %>
-                                                </small></p>
+                                            <p class="card-text">
+                                                <small class="text-muted">
+                                                    Rating: <%= movie.rating %>
+                                                </small>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -47,5 +51,22 @@ let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thr
                         </div>
                     <% }) %>
                 </div>
-                
-                <%- include('partials/footer') %>
+            </div>
+    </div>  
+</main>
+<script>
+    const lastUpdatesBtn = document.getElementById('last-updates-btn')
+    lastUpdatesBtn.addEventListener('click', showLastUpdates)
+
+    function showLastUpdates() {
+        const lastUpdatesRow = document.getElementById('last-updates-row')
+        if (lastUpdatesRow.className == "row last-updates-row-none") {
+            lastUpdatesRow.className = "row last-updates-row-block"
+            lastUpdatesRow.scrollIntoView()
+        } else {
+            lastUpdatesRow.className = "row last-updates-row-none"
+        }
+    }
+</script>
+  
+<%- include('partials/footer') %>

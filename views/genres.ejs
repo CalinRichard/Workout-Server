@@ -1,12 +1,37 @@
 <%- include('partials/header') %>
-<% console.log(movies) %>
-<% movies.forEach((movie) => {
-    for(let i = 0; i < movie.genre.length; i++){
-    if(movie.genre[i].includes(genre)){
-    %>
-<div>
-    <img src="/images/<%= movie.photo %>" alt="Movie Poster">
-</div>
-<% }}}) %>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <% movies.forEach((movie)=> {
+                for(let i = 0; i < movie.genre.length; i++){ if(movie.genre[i].includes(genre)){ %>
+                    <div class="col-lg-6">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-4">
+                                    <img src="/images/<%= movie.photo %>" class="img-fluid rounded-start" alt="Movie Poster">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= movie.name %>
+                                        </h5>
+                                        <p class="card-text">
+                                            Genre: <%= movie.genre %>
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                Rating: <%= movie.rating %>
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }}}) %>
+        </div>
+    </div>
+</main>
 
 <%- include('partials/footer') %>
