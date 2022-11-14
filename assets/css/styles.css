@@ -89,3 +89,33 @@ body{
 .last-updates-row-block{
     display: block !important;
 }
+
+.navbar{
+    margin-bottom: 10px;
+}
+
+.nav-container{
+    justify-content: start !important;
+}
+
+.nav-link{
+    color: bisque !important;
+    font-weight: bold !important;
+    font-size: large !important;
+}
+
+.navbar-img-logo{
+    width: 85px;
+    margin-right: 25px;
+}
+
+.card-title{
+    font-weight: bold;
+    font-size: 25px;
+    color: gold;
+}
+
+.img-fluid{
+    height: 100% !important;
+}
+

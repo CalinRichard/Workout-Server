@@ -5,7 +5,7 @@
         <div class="row">
             <% movies.forEach((movie)=> {
                 for(let i = 0; i < movie.genre.length; i++){ if(movie.genre[i].includes(genre)){ %>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12 movie-card">
                         <div class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-4">
@@ -16,12 +16,20 @@
                                         <h5 class="card-title">
                                             <%= movie.name %>
                                         </h5>
+                                        <br>
                                         <p class="card-text">
-                                            Genre: <%= movie.genre %>
+                                            <i class="bi bi-eye" style="color: gold" ></i> Genre: <%= movie.genre.join(", ") %>
                                         </p>
+                                        <br>
                                         <p class="card-text">
-                                            <small class="text-muted">
-                                                Rating: <%= movie.rating %>
+                                            <small>
+                                                <i class="bi bi-star" style="color: gold"></i> Rating: <%= movie.rating %>
+                                            </small>
+                                        </p>
+                                        <br>
+                                        <p class="card-text">
+                                            <small>
+                                                <i class="bi bi-calendar" style="color: gold"></i> Year: <%= movie.year %>
                                             </small>
                                         </p>
                                     </div>
