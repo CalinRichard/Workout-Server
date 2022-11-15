@@ -57,6 +57,10 @@ body{
     margin-bottom: 15px;
 }
 
+.card-img{
+    width: 100%;
+}
+
 .last-updates-div{
     margin-right: auto;
     margin-left: auto;
