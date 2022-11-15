@@ -31,7 +31,7 @@ body{
 }
 
 .last-updates-btn{
-    left: 25%;
+    left: 50%;
     bottom: 80px;
 }
 
@@ -78,10 +78,6 @@ body{
     max-width: 640px;
 }
 
-.last-updates-div{
-    text-align: center;
-}
-
 .last-updates-row-none{
     display: none !important;
 }
@@ -119,3 +115,13 @@ body{
     height: 100% !important;
 }
 
+.movie-list-title, .add-movie-title{
+    text-align: center;
+    color: bisque;
+}
+
+.form-control{
+    background: black !important;
+    border: solid 0.2px gold !important;
+    color: bisque !important;
+}

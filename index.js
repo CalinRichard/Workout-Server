@@ -6,6 +6,7 @@ import {fileURLToPath} from 'url';
 import movies from './routes/movies.js'
 import mongoose from 'mongoose'
 import genres from './routes/genres.js'
+import movieList from './routes/movieList.js'
 
 const app = express()
 const port = 3000
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname,"assets")))
 
 app.use('/movies', movies)
 app.use('/genres', genres)
+app.use('/movieList', movieList)
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)

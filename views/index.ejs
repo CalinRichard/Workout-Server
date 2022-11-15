@@ -27,27 +27,35 @@ let genres = ['Comedy', 'Sci-fi', 'Drama', 'Action', 'Adventure', 'Horror', 'Thr
                         lastThreeMovies.forEach((movie)=> { %>
                         <div class="last-updates-div col-lg-6">
                             <div class="card mb-3">
-                                <div class="row g-0">
-                                    <div class="col-4">
-                                        <img src="/images/<%= movie.photo %>" class="img-fluid rounded-start" alt="Movie Poster">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                <%= movie.name %>
-                                            </h5>
-                                            <p class="card-text">
-                                                Genre: <%= movie.genre %>
-                                            </p>
-                                            <p class="card-text">
-                                                <small class="text-muted">
-                                                    Rating: <%= movie.rating %>
-                                                </small>
-                                            </p>
-                                        </div>
+                            <div class="row g-0">
+                                <div class="col-4">
+                                    <img src="/images/<%= movie.photo %>" class="img-fluid rounded-start" alt="Movie Poster">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= movie.name %>
+                                        </h5>
+                                        <br>
+                                        <p class="card-text">
+                                            <i class="bi bi-eye" style="color: gold" ></i> Genre: <%= movie.genre.join(", ") %>
+                                        </p>
+                                        <br>
+                                        <p class="card-text">
+                                            <small>
+                                                <i class="bi bi-star" style="color: gold"></i> Rating: <%= movie.rating %>
+                                            </small>
+                                        </p>
+                                        <br>
+                                        <p class="card-text">
+                                            <small>
+                                                <i class="bi bi-calendar" style="color: gold"></i> Year: <%= movie.year %>
+                                            </small>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     <% }) %>
                 </div>
