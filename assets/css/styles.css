@@ -90,10 +90,6 @@ body{
     margin-bottom: 10px;
 }
 
-.nav-container{
-    justify-content: start !important;
-}
-
 .nav-link{
     color: bisque !important;
     font-weight: bold !important;
