@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
     photo: req.body.photo,
     genre: req.body.genre,
   });
-  res.send("ok");
+   res.redirect('/movieList')
 });
 
 // Find / render all movies
@@ -31,12 +31,15 @@ router.get("/:id", async (req, res) => {
 
 // Update one movie (by id)
 
-router.put("/:id", async (req, res) => {
-  const movie = await Movie.updateOne(
-    { _id: req.params.id },
-    { name: req.body.name, year: req.body.year }
-  );
-  res.send({ movie });
+router.patch("/:id", async (req, res) => {
+  const movie = await Movie.updateOne({ 
+    _id: req.params.id,
+    name: req.body.name,
+    year: req.body.year,
+    rating: req.body.rating,
+    photo: req.body.photo,
+    genre: req.body.genre});
+    res.send({movie})
 });
 
 // Delete one movie (by id)

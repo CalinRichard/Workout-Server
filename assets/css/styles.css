@@ -125,3 +125,8 @@ body{
     border: solid 0.2px gold !important;
     color: bisque !important;
 }
+
+.modal-header, .modal-body{
+    background: black;
+}
+
