@@ -29,24 +29,26 @@ router.get("/:id", async (req, res) => {
   res.send({ movie });
 });
 
+
 // Update one movie (by id)
 
-router.patch("/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
   const movie = await Movie.updateOne({ 
-    _id: req.params.id,
+    _id: req.params.id},
+    {
     name: req.body.name,
     year: req.body.year,
     rating: req.body.rating,
     photo: req.body.photo,
     genre: req.body.genre});
-    res.send({movie})
+    res.redirect('/movieList')
 });
 
 // Delete one movie (by id)
 
-router.delete("/:id", async (req, res) => {
+router.post("/delete/:id", async (req, res) => {
   const movie = await Movie.deleteOne({ _id: req.params.id });
-  res.send({ movie });
+  res.redirect('/movieList');
 });
 
 export default router;

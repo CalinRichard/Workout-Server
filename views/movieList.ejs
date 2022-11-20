@@ -12,7 +12,7 @@
                     <input class="form-control" type="number" name="year" id="movie-year" placeholder="Release Year">
                 </div>
                 <div class="form-group mb-5">
-                    <input class="form-control" type="number" name="rating" id="movie-rating" placeholder="Movie Rating">
+                    <input class="form-control" type="number" step="0.1" name="rating" id="movie-rating" placeholder="Movie Rating">
                 </div>
                 <div class="form-group mb-5">
                     <input class="form-control" type="text" name="genre" id="movie-genre" placeholder="Movie Genre">
@@ -36,23 +36,23 @@
                                         <br>
                                         <p class="card-text">
                                             <i class="bi bi-eye" style="color: gold"></i> Genre: <%= movie.genre.join(", ") %>
-                                                            </p>
-                                                            <br>
-                                                            <p class=" card-text">
-                                                <small>
-                                                    <i class="bi bi-star" style="color: gold"></i> Rating: <%= movie.rating %>
-                                                </small>
+                                        </p>
+                                        <br>
+                                        <p class=" card-text">
+                                        <small>
+                                        <i class="bi bi-star" style="color: gold"></i> Rating: <%= movie.rating %>
+                                        </small>
                                         </p>
                                         <br>
                                         <p class="card-text">
-                                            <small>
-                                                <i class="bi bi-calendar" style="color: gold"></i> Year: <%= movie.year %>
-                                            </small>
+                                        <small>
+                                             <i class="bi bi-calendar" style="color: gold"></i> Year: <%= movie.year %>
+                                        </small>
                                         </p>
                                         <br>
                                         <div>
-                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-                                            <button class="btn">Delete</button>
+                                            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal<%= movie._id %>">Edit</button>
+                                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= movie._id %>">Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -65,36 +65,56 @@
 </div>
   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<% movies.forEach((movie)=>{ %>
+<div class="modal fade" id="editModal<%= movie._id %>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModal<%= movie._id %>Label">Edit Movie List</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="container" method="post" action="/movies/<%= movie._id %>">
+                    <div class="form-group mb-5">
+                        <input class="form-control" type="text" name="name" value="<%= movie.name %>">
+                    </div>
+                    <div class="form-group mb-5">
+                        <input class="form-control" type="number" name="year" value="<%= movie.year %>">
+                    </div>
+                    <div class="form-group mb-5">
+                        <input class="form-control" type="number" step="0.1" name="rating" value="<%= movie.rating %>">
+                    </div>
+                    <div class="form-group mb-5">
+                        <input class="form-control" type="text" name="genre" value="<%= movie.genre.join(", ") %>">
+                    </div>
+                    <button class="btn btn-outline-warning">Save changes</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-            <form class="container" method="patch" action="/movies/636636564e18176e094632fa">
-                <div class="form-group mb-5">
-                    <input class="form-control" type="text" name="id" placeholder="Movie unique ID: <%= movies[0]._id %>" disabled>
-                </div>
-                <div class="form-group mb-5">
-                    <input class="form-control" type="text" name="name" placeholder="Movie Title">
-                </div>
-                <div class="form-group mb-5">
-                    <input class="form-control" type="number" name="year" placeholder="Release Year">
-                </div>
-                <div class="form-group mb-5">
-                    <input class="form-control" type="number" name="rating" placeholder="Movie Rating">
-                </div>
-                <div class="form-group mb-5">
-                    <input class="form-control" type="text" name="genre" placeholder="Movie Genre">
-                </div>
-                <button type="submit" class="btn btn-outline-warning">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </form>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<div class="modal fade" id="deleteModal<%= movie.id %>" tabindex="-1" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModal<%= movie.id %>Label">Delete Movie</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="container" method="post" action="/movies/delete/<%= movie._id %>">
+                    <h6>Delete <i class="text-gold"><%= movie.name %></i> from the list ?</h6>
+                    <br>
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% }) %>
 
 <%- include('partials/footer') %>
